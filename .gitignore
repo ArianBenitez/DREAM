@@ -48,3 +48,7 @@ crashlytics-build.properties
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Copias que deja Unity tras un cierre inesperado
+/[Aa]ssets/_Recovery/
+/[Aa]ssets/_Recovery.meta
