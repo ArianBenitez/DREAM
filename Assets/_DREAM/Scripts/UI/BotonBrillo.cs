@@ -11,11 +11,13 @@ public class BotonBrillo : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     Image imagen;
     Sprite normal;
+    Vector3 escalaInicial;
 
     void Awake()
     {
         imagen = GetComponent<Image>();
         normal = imagen.sprite;
+        escalaInicial = transform.localScale;
     }
 
     // Unity llama a estas dos solas cuando el ratón entra o sale del botón
@@ -30,6 +32,6 @@ public class BotonBrillo : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         imagen.sprite = sprite;
         imagen.SetNativeSize(); // el sprite con brillo es más grande que el normal
-        transform.localScale = Vector3.one * s;
+        transform.localScale = escalaInicial * s;
     }
 }
