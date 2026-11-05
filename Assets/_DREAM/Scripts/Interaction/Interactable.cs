@@ -1,20 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Interactable : MonoBehaviour
 {
     [Header("Aviso")]
     [SerializeField] private string verb = "interactuar"; // lo que se lee en el aviso
 
-    [Header("Ficha")]
-    [SerializeField] private string displayName = "Objeto";
-    [TextArea(2, 4)]
-    [SerializeField] private string description = "";
-    [SerializeField] private Sprite icon;
+    [Header("Interfaz 2D")]
+    [FormerlySerializedAs("icon")] // conserva la imagen que ya tenían puesta los objetos de prueba
+    [SerializeField] private Sprite cardImage;
 
     public string Verb => verb;
-    public string DisplayName => displayName;
-    public string Description => description;
-    public Sprite Icon => icon;
+    public Sprite CardImage => cardImage;
     
     public void Interact()
     {

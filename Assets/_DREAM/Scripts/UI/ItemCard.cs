@@ -1,23 +1,18 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-using TMPro;
 
+// Interfaz 2D de las notas, el manual del ascensor y los demás objetos que se leen.
 public class ItemCard : MonoBehaviour
 {
-    [SerializeField] private TMP_Text nameText;
-    [SerializeField] private TMP_Text descriptionText;
-    [SerializeField] private Image iconImage;
+    [FormerlySerializedAs("iconImage")]
+    [SerializeField] private Image image;
 
     public bool IsOpen => gameObject.activeSelf;
 
-    public void Show(Interactable item)
+    public void Show(Sprite sprite)
     {
-        nameText.text = item.DisplayName;
-        descriptionText.text = item.Description;
-
-        iconImage.sprite = item.Icon;
-        iconImage.enabled = item.Icon != null; // Si no hay imagen, no dejamos un cuadro blanco
-
+        image.sprite = sprite;
         gameObject.SetActive(true);
     }
 

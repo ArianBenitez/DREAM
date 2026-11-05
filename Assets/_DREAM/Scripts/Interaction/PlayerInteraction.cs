@@ -36,7 +36,12 @@ public class PlayerInteraction : MonoBehaviour
             Keyboard.current.eKey.wasPressedThisFrame)
         {
             currentInteractable.Interact();
-            OpenCard(currentInteractable);
+
+            // Solo las notas, el manual y similares tienen imagen. 
+            if (currentInteractable.CardImage != null)
+            {
+                OpenCard(currentInteractable);
+            }
         }
     }
 
@@ -44,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (itemCard == null) return;
 
-        itemCard.Show(item);
+        itemCard.Show(item.CardImage);
 
         if (playerMovement != null)
         {
