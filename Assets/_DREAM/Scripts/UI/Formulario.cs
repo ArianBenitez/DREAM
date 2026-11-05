@@ -6,6 +6,7 @@ public class Formulario : MonoBehaviour
     // En orden: Anuncio, Bienvenida y Preguntas_1 a Preguntas_4
     [SerializeField] GameObject[] pantallas; // en orden: Anuncia, Bienvenida, Preguntas_1 a 4
     int actual;
+    [SerializeField] AudioFormulario audioFormulario;
 
     void Start() => Mostrar(0);
 
@@ -13,6 +14,7 @@ public class Formulario : MonoBehaviour
     public void Siguiente()
     {
         if (PantallaRespondida()) Mostrar(actual + 1);
+        else audioFormulario.Error();
     }
 
     // Al volver atrás las respuestas ya dadas se conservan
@@ -21,7 +23,7 @@ public class Formulario : MonoBehaviour
     // De momento solo escribe las respuestas en la Console para comprobarlas
     public void Terminar()
     {
-        if (!PantallaRespondida()) return;
+        if (!PantallaRespondida()) { audioFormulario.Error(); return; }
         foreach (Pregunta p in GetComponentsInChildren<Pregunta>(true)) //true incluye pantallas ocultas
             Debug.Log(p.name + ": " + (p.Elegida == 0 ? "A" : "B"));
     }
