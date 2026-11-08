@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hud_dial_esfera_0: 952044222211160347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
