@@ -2,24 +2,27 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
+// Va en todo objeto con el que se puede interactuar pulsando E. 
+// Guarda lo que se ve en pantalla al acercarte y lo que hace el objeto al pulsar E.
 public class Interactable : MonoBehaviour
 {
     [Header("Aviso")]
-    [SerializeField] private string verb = "interactuar"; // lo que se lee en el aviso
+    [SerializeField] private string frase = "interactuar"; // Lo que se lee en al acercarte al objeto
 
     [Header("Interfaz 2D")]
-    [FormerlySerializedAs("icon")] // conserva la imagen que ya tenían puesta los objetos de prueba
-    [SerializeField] private Sprite cardImage;
+    [SerializeField] private Sprite cardImage; // Si tiene imagen se abre en grande al pulsar E
 
     [Header("Al pulsar E")]
-    [SerializeField] private UnityEvent onInteract; // lo que hace este objeto, se rellena en el Inspector como el On Click
+    [SerializeField] private UnityEvent onInteract; // Lo que hace este objeto, se rellena en el Inspector
 
-    public string Verb => verb;
+    // Solo lectura
+    public string Frase => frase;
     public Sprite CardImage => cardImage;
 
+    // La llama PlayerInteraction cuando el jugador mira este objeto y pulsa E
     public void Interact()
     {
         Debug.Log("Has interactuado con: " + gameObject.name);
-        onInteract.Invoke();
+        onInteract.Invoke(); // Ejecuta las acciones de On Interact en el inspector
     }
 }

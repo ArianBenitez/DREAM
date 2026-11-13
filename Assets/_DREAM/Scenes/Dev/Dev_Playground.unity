@@ -243,8 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verb: escuchar
+  frase: reproducir el casete
   cardImage: {fileID: 21300000, guid: 39dee7926677a4248947bb5b4d1649e6, type: 3}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &94925904
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,8 +518,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verb: encender
+  frase: encender el ordenador
   cardImage: {fileID: 21300000, guid: 815e0ccef0cda0b44b9c2a95f8770133, type: 3}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &456858578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1373,8 +1379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verb: interactuar
+  frase: coger la camara
   cardImage: {fileID: 0}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1545809114
 BoxCollider:
   m_ObjectHideFlags: 0

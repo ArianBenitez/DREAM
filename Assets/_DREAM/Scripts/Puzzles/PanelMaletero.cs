@@ -7,20 +7,21 @@ using UnityEngine.UI;
 // casilla y Presiona para abrir comprueba la combinación.
 public class PanelMaletero : MonoBehaviour
 {
-    [SerializeField] Image[] casillas; // el Simbolo de cada casilla, de izq a der
-    [SerializeField] Sprite[] simbolos; // los cinco, en el orden de los archivos
-    [SerializeField] int[] combinacion = { 3, 4, 2 }; // Reloj, Velero, Flor (se cuenta desde 0)
-    [SerializeField] GameObject tapa; // el cubo que tapa la llave
-    [SerializeField] TMP_Text mensaje;
-    [SerializeField] PlayerMovement jugador;
-    [SerializeField] PlayerInteraction interaccion;
-    [SerializeField] float esperaBloqueo = 10f;
+    [SerializeField] Image[] casillas;                // El Simbolo de cada casilla, de izq a der
+    [SerializeField] Sprite[] simbolos;               // Los cinco símbolos, en el orden de los archivos
+    [SerializeField] int[] combinacion = { 3, 4, 2 }; // La combinación correcta: Reloj, Velero, Flor
+    [SerializeField] GameObject tapa;                 // El cubo que tapa la llave
+    [SerializeField] TMP_Text mensaje;                // El texto que avisa los fallos y el bloqueo
+    [SerializeField] PlayerMovement jugador;          // Se apaga mientras el candado está abierto
+    [SerializeField] PlayerInteraction interaccion;   
+    [SerializeField] float esperaBloqueo = 10f;       // El tiempo de espera cuando se bloquea
 
-    int[] elegidos = new int[3];
+    int[] elegidos = new int[3]; // El símbolo que aparece en cada casilla, empiezan en el Oso (posición 0)
     int fallos;
-    float bloqueadoHasta;
-    string textoPlaca;
+    float bloqueadoHasta;        // Segundo del juego en el que termina el bloqueo
+    string textoPlaca;           // El texto original del aviso, para volver a ponerlo
 
+    // Se ejecuta la primera vez que se activa el panel del candado
     void Awake()
     {
         textoPlaca = mensaje.text;
@@ -30,11 +31,11 @@ public class PanelMaletero : MonoBehaviour
     // La llama la tapa del maletero al pulsar E
     public void Abrir()
     {
-        if (!tapa.activeSelf) return; // ya está abierto
+        if (!tapa.activeSelf) return; // Ya está abierto
         gameObject.SetActive(true);
         jugador.enabled = false;
         interaccion.enabled = false;
-        Cursor.lockState = CursorLockMode.None; // hace falta el ratón para las flechas
+        Cursor.lockState = CursorLockMode.None; // Muestra el ratón para las flechas
         Cursor.visible = true;
     }
 
@@ -47,6 +48,7 @@ public class PanelMaletero : MonoBehaviour
         Cursor.visible = false;
     }
 
+    // Solo se ejecuta con el panel del candado abierto
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame) Cerrar();
@@ -71,6 +73,7 @@ public class PanelMaletero : MonoBehaviour
         Pintar();
     }
 
+    // Pone en cada casilla el sprite del símbolo elegido
     void Pintar()
     {
         for (int i = 0; i < casillas.Length; i++)
@@ -82,6 +85,7 @@ public class PanelMaletero : MonoBehaviour
     {
         if (bloqueadoHasta > 0) return;
 
+        // Al primer símbolo que no coincide cuenta un fallo y deja de mirar
         for (int i = 0; i < combinacion.Length; i++)
         {
             if (elegidos[i] != combinacion[i])
@@ -90,7 +94,7 @@ public class PanelMaletero : MonoBehaviour
                 return;
             }
         }
-        tapa.SetActive(false);
+        tapa.SetActive(false); // Se desactiva la tapa y se muestra la llave
         Cerrar();
     }
 
@@ -102,6 +106,7 @@ public class PanelMaletero : MonoBehaviour
             mensaje.text = "Código incorrecto (" + fallos + "/3)";
             return;
         }
+        // Se guarda cuándo termina el bloqueo y Update lo quita al llegar a ese momento
         bloqueadoHasta = Time.time + esperaBloqueo;
         mensaje.text = "Sistema bloqueado. Espera " + esperaBloqueo + " segundos";
     }

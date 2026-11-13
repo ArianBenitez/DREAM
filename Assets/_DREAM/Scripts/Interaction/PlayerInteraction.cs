@@ -2,16 +2,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
+// Va en la cámara del jugador. Mira qué objeto tiene delante, enseña el texto "Pulsa E para..." y,
+// le dice a ese objeto que ejecute lo que tiene en On Interact
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField] private float interactionDistance = 2f;
-    [SerializeField] private TMP_Text interactionPrompt;
-    [SerializeField] private ItemCard itemCard;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private float interactionDistance = 2f; // Longitud del rayo de interacción
+    [SerializeField] private TMP_Text interactionPrompt;     // El aviso del HUD
+    [SerializeField] private ItemCard itemCard;              // La ficha 2D
+    [SerializeField] private PlayerMovement playerMovement;  // Cuando abres la ficha de algún objeto se desactiva el movimiento
 
-    private Interactable currentInteractable;
-    private Interactable previousInteractable;
+    private Interactable currentInteractable;  // lo que miras en el fotograma actual
+    private Interactable previousInteractable; // lo que mirabas en el anterior fotograma, para no volver a pintar el aviso
 
+    // LateUpdate va después de los Update, así el rayo sale de la cámara cuando ésta ya se ha movido en el fotograma actual
     private void LateUpdate()
     {
         // Con la ficha abierta el juego se detiene y solo escuchamos para cerrarla
@@ -32,10 +35,11 @@ public class PlayerInteraction : MonoBehaviour
         
         if (currentInteractable == null) return;
 
+        // Solo con el ratón bloqueado, para no interactuar al pulsar fuera del juego en el editor
         if (Cursor.lockState == CursorLockMode.Locked && Keyboard.current != null &&
             Keyboard.current.eKey.wasPressedThisFrame)
         {
-            currentInteractable.Interact();
+            currentInteractable.Interact(); // Ejecuta su On Interact
 
             // Solo las notas, el manual y similares tienen imagen. 
             if (currentInteractable.CardImage != null)
@@ -67,6 +71,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    // Lanza un rayo desde la cámara hacia delante y devuelve el primer objeto con el componente Interactable con el que choca
     private Interactable FindInteractable()
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactionDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
@@ -93,12 +98,12 @@ public class PlayerInteraction : MonoBehaviour
 
         if (show)
         {
-            interactionPrompt.text = "Pulsa E para " + currentInteractable.Verb;
+            interactionPrompt.text = "Pulsa E para " + currentInteractable.Frase;
         }
         interactionPrompt.gameObject.SetActive(show);
     }
 
-    // Al desactivarlo (por ejemplo, con el panel del maletero abierto) se quita el aviso de la pantalla
+    // Unity la llama al desactivar el componente. Quita el aviso y olvida lo último que se miraba para repintarlo al volver.
     private void OnDisable()
     {
         previousInteractable = null;

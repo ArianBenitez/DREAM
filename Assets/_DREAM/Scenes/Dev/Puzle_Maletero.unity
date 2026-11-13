@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: interactuar
+  frase: abrir la puerta
   cardImage: {fileID: 0}
   onInteract:
     m_PersistentCalls:
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: leer el ticket
+  frase: mirar el ticket
   cardImage: {fileID: 21300000, guid: dbbd97e9c2f5c6e48bad3be42f729732, type: 3}
   onInteract:
     m_PersistentCalls:
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: mirar la postal
+  frase: mirar la postal
   cardImage: {fileID: 21300000, guid: 689adbc7f51232149b5211cd2d032e8d, type: 3}
   onInteract:
     m_PersistentCalls:
@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: leer la carta
+  frase: leer la carta
   cardImage: {fileID: 21300000, guid: ee5dd10b273f8f84ebb26a33dfa20a20, type: 3}
   onInteract:
     m_PersistentCalls:
@@ -2816,7 +2816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: abrir el maletero
+  frase: abrir el maletero
   cardImage: {fileID: 0}
   onInteract:
     m_PersistentCalls:
@@ -2977,7 +2977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: interactuar
+  frase: leer la nota
   cardImage: {fileID: 21300000, guid: dcb6d7cb1b826d34293d0e350bc9dbe5, type: 3}
   onInteract:
     m_PersistentCalls:
@@ -3107,7 +3107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  verb: coger la llave
+  frase: coger la llave
   cardImage: {fileID: 0}
   onInteract:
     m_PersistentCalls:
