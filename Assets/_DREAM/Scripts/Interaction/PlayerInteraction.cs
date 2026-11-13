@@ -97,4 +97,11 @@ public class PlayerInteraction : MonoBehaviour
         }
         interactionPrompt.gameObject.SetActive(show);
     }
+
+    // Al desactivarlo (por ejemplo, con el panel del maletero abierto) se quita el aviso de la pantalla
+    private void OnDisable()
+    {
+        previousInteractable = null;
+        if (interactionPrompt != null) interactionPrompt.gameObject.SetActive(false);
+    }
 }

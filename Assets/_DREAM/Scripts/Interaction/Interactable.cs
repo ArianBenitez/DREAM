@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class Interactable : MonoBehaviour
@@ -10,11 +11,15 @@ public class Interactable : MonoBehaviour
     [FormerlySerializedAs("icon")] // conserva la imagen que ya tenían puesta los objetos de prueba
     [SerializeField] private Sprite cardImage;
 
+    [Header("Al pulsar E")]
+    [SerializeField] private UnityEvent onInteract; // lo que hace este objeto, se rellena en el Inspector como el On Click
+
     public string Verb => verb;
     public Sprite CardImage => cardImage;
-    
+
     public void Interact()
     {
         Debug.Log("Has interactuado con: " + gameObject.name);
+        onInteract.Invoke();
     }
 }
