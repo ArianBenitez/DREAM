@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-// Va en la cámara del jugador. Mira qué objeto tiene delante, enseña el texto "Pulsa E para..." y,
+// Va en la cámara del jugador. Mira qué objeto tiene delante, enseña el texto "Pulsa Clic Izquierdo para..." y,
 // le dice a ese objeto que ejecute lo que tiene en On Interact
 public class PlayerInteraction : MonoBehaviour
 {
@@ -23,12 +23,12 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable = null;
             UpdatePrompt();
 
-            if (Keyboard.current != null && (Keyboard.current.eKey.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame))
+            if (Keyboard.current != null && (Mouse.current.leftButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame))
             {
                 CloseCard();
             }
             return;
-        }
+        } 
 
         currentInteractable = FindInteractable();
         UpdatePrompt();
@@ -37,7 +37,7 @@ public class PlayerInteraction : MonoBehaviour
 
         // Solo con el ratón bloqueado, para no interactuar al pulsar fuera del juego en el editor
         if (Cursor.lockState == CursorLockMode.Locked && Keyboard.current != null &&
-            Keyboard.current.eKey.wasPressedThisFrame)
+            Mouse.current.leftButton.wasPressedThisFrame)
         {
             currentInteractable.Interact(); // Ejecuta su On Interact
 
@@ -98,7 +98,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (show)
         {
-            interactionPrompt.text = "Pulsa E para " + currentInteractable.Frase;
+            interactionPrompt.text = "Pulsa Clic Izquierdo para " + currentInteractable.Frase;
         }
         interactionPrompt.gameObject.SetActive(show);
     }
