@@ -63,8 +63,22 @@ MonoBehaviour:
       - rid: 6788757998344339466
       - rid: 6788757998344339467
     m_RuntimeSettings:
-      m_List: []
-  m_AssetVersion: 10
+      m_List:
+      - rid: 6852985685364965378
+      - rid: 6852985685364965379
+      - rid: 6852985685364965380
+      - rid: 6852985685364965381
+      - rid: 6852985685364965384
+      - rid: 6852985685364965385
+      - rid: 6852985685364965392
+      - rid: 6852985685364965394
+      - rid: 8712630790384254976
+      - rid: 7997137787783479296
+      - rid: 6788757998344339460
+      - rid: 6788757998344339464
+      - rid: 6788757998344339465
+      - rid: 6788757998344339467
+  m_AssetVersion: 8
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
   m_RenderingLayerNames:
   - Light Layer default
@@ -94,8 +108,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 6788757998344339458
       type: {class: PostProcessData/ShaderResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
