@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEditor.Rendering;
 
 // Va en el HUD. Guarda las herramientas que puede llevar el jugador y pinta la rueda del inventario como la rueda de un teléfono
 // antiguo.
@@ -62,7 +61,7 @@ public class Inventario : MonoBehaviour
     }
 
     // Rehace las casillas según lo que lleva el jugador equipado
-    // Se llama al empezar, al coger algo y al pulsar Q
+    // Se llama al empezar, al coger algo
     private void Pintar()
     {
         // 1. Borrar las casillas de antes (es más fácil rehacerlas que ir cambiándolas sueltas)
@@ -71,7 +70,7 @@ public class Inventario : MonoBehaviour
 
         // 2. Si no llevamos nada, esconder el inventario y salir
         int n = herramientas.Count;
-        rueda.SetActive(n > 0); // Sin herramientas no se el inventario
+        rueda.SetActive(n > 0); 
         if (n == 0) return;
 
         // 3. Hacer una casilla por objeto, del tamaño que toca según la rueda

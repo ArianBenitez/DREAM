@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_DREAM/Scenes/Dev/Mecanica_Polaroid.unity
     guid: 0b5f48d934575d5418c562a4bc5c0bc9
+  - enabled: 1
+    path: Assets/_DREAM/Scenes/Dev/Mecanica_Inventario.unity
+    guid: 47ff477c17e3d2045b19e365e58694a8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
