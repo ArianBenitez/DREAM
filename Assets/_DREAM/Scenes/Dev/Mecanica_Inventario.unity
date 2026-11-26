@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4818635}
   - component: {fileID: 4818639}
   m_Layer: 0
-  m_Name: Herramienta_Libro
+  m_Name: Herramienta_Suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  frase: coger el libro
+  frase: coger la pieza de suelo
   cardImage: {fileID: 0}
   onInteract:
     m_PersistentCalls:
@@ -253,7 +253,7 @@ MonoBehaviour:
         m_MethodName: Coger
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: e639b42f7a5820f4f81492ee08534cfa, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: bdd88a6ddad742a4988352ff0714540d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 1100443924}
   - component: {fileID: 1100443928}
   m_Layer: 0
-  m_Name: Herramienta_Cuerda
+  m_Name: Herramienta_Cables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd815f972582f2498278199c8780271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  frase: coger la cuerda
+  frase: coger los cables
   cardImage: {fileID: 0}
   onInteract:
     m_PersistentCalls:
@@ -1450,7 +1450,7 @@ MonoBehaviour:
         m_MethodName: Coger
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: cb45c74189444dd488bbe16c1fa6acc7, type: 3}
+          m_ObjectArgument: {fileID: 21300000, guid: 70ff796c7d49daa44af7858d5141f879, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
